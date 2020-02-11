@@ -39,9 +39,9 @@ class StopWatchTests {
 	private static final String name1 = "Task 1";
 	private static final String name2 = "Task 2";
 
-	private static final long duration1 = 200;
-	private static final long duration2 = 100;
-	private static final long fudgeFactor = 50;
+	private static final long duration1 = 2000;
+	private static final long duration2 = 1000;
+	private static final long fudgeFactor = 500;
 
 	private final StopWatch stopWatch = new StopWatch(ID);
 
