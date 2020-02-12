@@ -1,4 +1,4 @@
-package com.jz.test.context;
+package com.jz.core.ioc;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

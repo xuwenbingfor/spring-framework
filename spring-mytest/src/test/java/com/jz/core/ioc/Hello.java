@@ -1,4 +1,4 @@
-package com.jz.test.context;
+package com.jz.core.ioc;
 
 public class Hello {
 	public void hello() {
