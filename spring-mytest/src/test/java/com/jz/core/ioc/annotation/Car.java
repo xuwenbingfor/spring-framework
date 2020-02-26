@@ -1,5 +1,7 @@
 package com.jz.core.ioc.annotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -9,6 +11,10 @@ import org.springframework.stereotype.Component;
 public class Car {
 	@Value("${car.name}")
 	private String name;
+
+	@Autowired
+//	@Qualifier("bill")
+	private Person person;
 
 	public Car() {
 		System.out.println("car is constructing");
@@ -38,6 +44,7 @@ public class Car {
 	public String toString() {
 		return "Car{" +
 				"name='" + name + '\'' +
+				", person=" + person +
 				'}';
 	}
 }

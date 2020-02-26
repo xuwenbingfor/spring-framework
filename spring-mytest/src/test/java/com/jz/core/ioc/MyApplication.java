@@ -36,11 +36,15 @@ public class MyApplication {
 	}*/
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.getEnvironment().setActiveProfiles("dev");
+		context.register(MyApplicationConfig.class);
+		context.refresh();
 		Car car = context.getBean(Car.class);
 		System.out.println(car);
-		ConfigurableEnvironment environment = context.getEnvironment();
-		System.out.println(environment.getProperty("car.name"));
+//		ConfigurableEnvironment environment = context.getEnvironment();
+//		System.out.println(environment.getProperty("car.name"));
 	}
 
 /*	public static void main(String[] args) {
