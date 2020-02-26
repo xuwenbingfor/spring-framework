@@ -1,7 +1,9 @@
 package com.jz.core.ioc;
 
+import com.jz.core.ioc.annotation.Car;
 import com.jz.core.ioc.annotation.MyApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 import java.util.stream.Stream;
 
@@ -33,16 +35,19 @@ public class MyApplication {
 		System.out.println(person2.hashCode());
 	}*/
 
-//	public static void main(String[] args) {
-//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
-//		Car car = context.getBean(Car.class);
-//		System.out.println(car);
-//	}
-
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
-		printBeanNames(context);
+		Car car = context.getBean(Car.class);
+		System.out.println(car);
+		ConfigurableEnvironment environment = context.getEnvironment();
+		System.out.println(environment.getProperty("car.name"));
 	}
+
+/*	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
+		printBeanNames(context);
+		context.close();
+	}*/
 
 	private static void printBeanNames(AnnotationConfigApplicationContext context) {
 		String[] beanDefinitionNames = context.getBeanDefinitionNames();

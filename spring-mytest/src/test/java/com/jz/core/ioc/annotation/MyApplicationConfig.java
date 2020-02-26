@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("com.jz.core.ioc.annotation")
 //@Import(Person.class)
 //@Import(PersonImportSelector.class)
-@Import(PersonImportBeanDefinitionRegistrar.class)
+//@Import(PersonImportBeanDefinitionRegistrar.class)
 public class MyApplicationConfig {
 /*	@Bean
 //	@Scope("prototype")
