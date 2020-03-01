@@ -11,6 +11,9 @@ repositories {
 dependencies {
     compile(project(":spring-context"))
     compile(project(":spring-aop"))
+    compile(project(":spring-jdbc"))
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
+    compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.5'
     optional("org.aspectj:aspectjweaver")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
