@@ -1,13 +1,19 @@
 package com.jz.core.ioc;
 
-import com.jz.core.ioc.annotation.Car;
-import com.jz.core.ioc.annotation.MyApplicationConfig;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.stream.Stream;
 
 public class MyApplication {
+	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:context/applicationContext.xml");
+		Hello hello = (Hello) ac.getBean("hello");
+		hello.hello();
+		ac.publishEvent(new ContextRefreshedEvent(ac));
+	}
 /*	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:context/applicationContext.xml");
 		Hello hello = (Hello) ac.getBean("hello");
@@ -35,7 +41,7 @@ public class MyApplication {
 		System.out.println(person2.hashCode());
 	}*/
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 //		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.getEnvironment().setActiveProfiles("dev");
@@ -45,7 +51,7 @@ public class MyApplication {
 		System.out.println(car);
 //		ConfigurableEnvironment environment = context.getEnvironment();
 //		System.out.println(environment.getProperty("car.name"));
-	}
+	}*/
 
 /*	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplicationConfig.class);
